@@ -20,7 +20,7 @@ class AddAppointment extends React.Component {
             <input type="phone" name="phone" placeholder="Phone Number" />
           </div>
           <Button type="submit" color="blue" className="ui button blue">
-            Submit
+            Book Appointment
           </Button>
         </form>
       </div>
