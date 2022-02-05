@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import uuid from "react-uuid";
+// key={uuid()}
 import "./styles.css";
 
 // COMPONENTS
@@ -13,9 +15,9 @@ export default function App() {
   const [appointments, setAppointments] = useState([]);
 
   const handleAddAppt = (appointment) => {
-    console.log(appointment);
-    setAppointments([...appointments, appointment]);
+    setAppointments([...appointments, { id: uuid(), ...appointment }]);
   };
+
   // const doctors = [
   //   {
   //     id: "1",
@@ -56,7 +58,16 @@ export default function App() {
   //   }
   // ];
 
+  useEffect(() => {
+    const getAppts = JSON.parse(localStorage.getItem("appointments"));
+    if (getAppts) setAppointments(getAppts);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("appointments", JSON.stringify(appointments));
+  }, [appointments]);
+
   return (
+    // <div className="ui container">
     <div className="App">
       <Router>
         <NavBar />
