@@ -18,6 +18,14 @@ export default function App() {
     setAppointments([...appointments, { id: uuid(), ...appointment }]);
   };
 
+  const handleDeleteAppt = (id) => {
+    const newAppointmentsList = appointments.filter((appointment) => {
+      return appointment.id !== id;
+    });
+
+    setAppointments(newAppointmentsList);
+  };
+
   // const doctors = [
   //   {
   //     id: "1",
@@ -72,7 +80,10 @@ export default function App() {
       <Router>
         <NavBar />
         <AddAppointment handleAddAppt={handleAddAppt} />
-        <AppointmentsList appointments={appointments} />
+        <AppointmentsList
+          appointments={appointments}
+          getApptID={handleDeleteAppt}
+        />
         <Routes>
           {/* <Route path="/" element={<DoctorsList doctors={doctors} />} /> */}
           {/* <Route path="/add" element={<AddAppointment />} /> */}

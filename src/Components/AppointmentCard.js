@@ -1,8 +1,8 @@
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const AppointmentCard = ({ appointment }) => {
-  const { id, name, email, phone, image } = appointment;
+const AppointmentCard = (props) => {
+  const { id, name, email, phone, image } = props.appointment;
 
   return (
     <>
@@ -12,7 +12,10 @@ const AppointmentCard = ({ appointment }) => {
           <div className="header">{name}</div>
           <div className="header">{email}</div>
           <div className="header">{phone}</div>
-          <FaTrash style={{ color: "red" }} />
+          <FaTrash
+            style={{ color: "red" }}
+            onClick={() => props.handleClick(id)}
+          />
           <Link to="/add">
             <button>Book Appointment</button>
           </Link>
