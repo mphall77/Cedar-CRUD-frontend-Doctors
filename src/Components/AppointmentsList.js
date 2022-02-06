@@ -1,14 +1,22 @@
+import { Link } from "react-router-dom";
 import AppointmentCard from "./AppointmentCard";
+import "../styles/AppointmentsList.scss";
 
-const AppointmentsList = ({ appointments, getApptID }) => {
+const AppointmentsList = (props) => {
   const handleDeleteAppt = (id) => {
-    getApptID(id);
+    props.getApptID(id);
   };
 
   return (
-    <>
-      <div className="ui celled list">
-        {appointments.map((appointment) => {
+    <div className="list__wrapper">
+      <h2 className="list__title">Appointments</h2>
+
+      <Link to="/add">
+        <button className="list__btn">New Appointment</button>
+      </Link>
+
+      <div className="list__content">
+        {props.appointments.map((appointment) => {
           return (
             <AppointmentCard
               appointment={appointment}
@@ -18,7 +26,7 @@ const AppointmentsList = ({ appointments, getApptID }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

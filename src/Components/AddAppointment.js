@@ -1,5 +1,6 @@
 import React from "react";
-// import { Button } from "semantic-ui-react";
+// import { useHistory, useNavigate} from "react-router-dom";
+import "../styles/AddAppointment.scss";
 
 class AddAppointment extends React.Component {
   state = {
@@ -15,18 +16,20 @@ class AddAppointment extends React.Component {
       return;
     }
     this.props.handleAddAppt(this.state);
-    console.log(this.state);
     this.setState({ name: "", email: "", phone: "" });
-    // this.props.history.push();
+    console.log(this.state);
+    // this.props.history.push("/");
   };
+
   render() {
     return (
-      <div className="ui main">
-        <h2>Add Appointment</h2>
-        <form className="ui form" onSubmit={this.handleAddAppt}>
-          <div className="field">
-            <label htmlFor="userName">name</label>
+      <div className="form__container">
+        <h2 className="form__title">Add Appointment</h2>
+        <form className="form" onSubmit={this.handleAddAppt}>
+          <div className="form__name">
+            <label className="form__label" htmlFor="userName"></label>
             <input
+              className="form__input"
               required
               type="text"
               name="name"
@@ -35,10 +38,12 @@ class AddAppointment extends React.Component {
               onChange={(e) => this.setState({ name: e.target.value })}
             />
           </div>
+
           <div className="field">
-            <label htmlFor="userEmail">mail</label>
+            <label className="form__label" htmlFor="userEmail"></label>
             <input
               required
+              className="form__input"
               type="email"
               name="email"
               placeholder="Email"
@@ -46,18 +51,22 @@ class AddAppointment extends React.Component {
               onChange={(e) => this.setState({ email: e.target.value })}
             />
           </div>
+
           <div className="field">
-            <label htmlFor="userPhone">phone</label>
+            <label className="field__label" htmlFor="userPhone"></label>
             <input
               // required
-              type="phone"
+              className="form__input"
+              type="tel"
               name="phone"
-              placeholder="Phone Number"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              placeholder="123-456-7890"
               value={this.state.phone}
               onChange={(e) => this.setState({ phone: e.target.value })}
             />
           </div>
-          <button type="submit" color="blue" className="ui button blue">
+
+          <button className="form__btn" type="submit">
             Book Appointment
           </button>
         </form>

@@ -1,27 +1,42 @@
-import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaTrash, FaEdit } from "react-icons/fa";
+import "../styles/AppointmentCard.scss";
 
 const AppointmentCard = (props) => {
   const { id, name, email, phone, image } = props.appointment;
 
   return (
-    <>
-      <section className="item">
-        <div className="content" key={id}>
-          <img src={image} alt="user" />
-          <div className="header">{name}</div>
-          <div className="header">{email}</div>
-          <div className="header">{phone}</div>
-          <FaTrash
-            style={{ color: "red" }}
-            onClick={() => props.handleClick(id)}
-          />
+    <div className="card__container">
+      <div className="card" key={id}>
+        <div className="card__body">
+          <div className="card__icons">
+            <div className="card__icon-edit">
+              <FaEdit />
+            </div>
+
+            <div className="card__icon-trash">
+              <FaTrash onClick={() => props.handleClick(id)} />
+            </div>
+          </div>
+          <Link to={`/appointment/{id}`}>
+            <img
+              className="card__image"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTODg2jEqoSFCjxwNkQ-APX6iB0Wd5M7bTNDA&usqp=CAU"
+              alt="user"
+            />
+
+            <h4 className="card__title">Name: {name}</h4>
+            <p className="card__description">Email: {email}</p>
+            <p className="card__description">Phone: {phone}</p>
+          </Link>
+
           <Link to="/add">
-            <button>Book Appointment</button>
+            <button className="card__btn">Book Appointment</button>
           </Link>
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
+
 export default AppointmentCard;
