@@ -2,41 +2,51 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import uuid from "react-uuid"; // key={uuid()}
 import doctorData from "./data/doctors.json";
-import api from "./api/doctors";
+// import api from "./api/doctors";
 import "./styles.css";
 
 // COMPONENTS
 import NavBar from "./Components/NavBar";
 import AddAppointment from "./Components/AddAppointment";
 import AppointmentsList from "./Components/AppointmentsList";
+import EditAppointment from "./Components/EditAppointment";
 import AppointmentDetails from "./Components/AppointmentDetails";
 import DoctorsList from "./Components/DoctorsList";
 import DoctorDetails from "./Components/DoctorDetails";
 
 // PAGES
 import Home from "./Pages/Home";
-import Show from "./Pages/Show";
+// import Show from "./Pages/Show";
+
+import { apiURL } from "./util/apiURL";
+const API = apiURL();
 
 export default function App() {
   const [doctors, setDoctors] = useState([]);
   const [appointments, setAppointments] = useState([]);
 
-  const fetchAlldoctors = async () => {
-    try {
-      let res = await doctorData;
-      setDoctors(res);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
+    const fetchAlldoctors = async () => {
+      try {
+        let res = await doctorData;
+        setDoctors(res);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
     fetchAlldoctors();
   }, []);
 
   const handleAddAppt = (appointment) => {
     setAppointments([...appointments, { id: uuid(), ...appointment }]);
   };
+
+  // const handleEditAppt = (id) => {
+  //   const appointment = appointments.filter(appointment => {
+
+  //   })
+  // }
 
   const handleDeleteAppt = (id) => {
     const newAppointmentsList = appointments.filter((appointment) => {
@@ -55,7 +65,6 @@ export default function App() {
   }, [appointments]);
 
   return (
-    // <div className="ui container">
     <div className="App">
       <Router>
         <NavBar />
@@ -82,6 +91,7 @@ export default function App() {
             path="/add"
             element={<AddAppointment handleAddAppt={handleAddAppt} />}
           />
+          <Route path="/edit" element={<EditAppointment />} />
           <Route path="/appointment/:id" element={<AppointmentDetails />} />
         </Routes>
       </Router>

@@ -11,7 +11,9 @@ const AppointmentCard = (props) => {
         <div className="card__body">
           <div className="card__icons">
             <div className="card__icon-edit">
-              <FaEdit />
+              <Link to="/edit">
+                <FaEdit />
+              </Link>
             </div>
 
             <div className="card__icon-trash">
@@ -31,7 +33,7 @@ const AppointmentCard = (props) => {
           </Link>
 
           <Link to="/add">
-            <button className="card__btn">Book Appointment</button>
+            <button className="card__btn">New Appointment</button>
           </Link>
         </div>
       </div>
