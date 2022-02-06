@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import uuid from "react-uuid"; // key={uuid()}
+import doctorData from "./data/doctors.json";
+import api from "./api/doctors";
 import "./styles.css";
 
 // COMPONENTS
@@ -13,10 +15,24 @@ import DoctorDetails from "./Components/DoctorDetails";
 
 // PAGES
 import Home from "./Pages/Home";
+import Show from "./Pages/Show";
 
 export default function App() {
   const [doctors, setDoctors] = useState([]);
   const [appointments, setAppointments] = useState([]);
+
+  const fetchAlldoctors = async () => {
+    try {
+      let res = await doctorData;
+      setDoctors(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchAlldoctors();
+  }, []);
 
   const handleAddAppt = (appointment) => {
     setAppointments([...appointments, { id: uuid(), ...appointment }]);
@@ -48,7 +64,10 @@ export default function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/doctors" element={<DoctorsList doctors={doctors} />} />
-          <Route path="/doctor/:id" element={<DoctorDetails />} />
+          <Route
+            path="/doctor/:id"
+            element={<DoctorDetails doctors={doctors} />}
+          />
 
           <Route
             path="/appointments"
@@ -69,22 +88,3 @@ export default function App() {
     </div>
   );
 }
-
-// const appointments = [
-//   {
-//     id: "111",
-//     patient: "Suzy Q",
-//     email: "suzy@gmail.com",
-//     phone: "123-456-7890",
-//     image:
-//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTODg2jEqoSFCjxwNkQ-APX6iB0Wd5M7bTNDA&usqp=CAU"
-//   },
-//   {
-//     id: "222",
-//     patient: "Bobby Blue",
-//     email: "bobbyy@yahoo.com",
-//     phone: "456-789-0123",
-//     image:
-//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxCJcDGFsfA3i8QBQ82IWfeC3PR5JJh5GAMg&usqp=CAU"
-//   }
-// ];

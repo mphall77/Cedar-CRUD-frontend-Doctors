@@ -1,10 +1,9 @@
 // import {useState} from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import DoctorCard from "./DoctorCard";
 import "../styles/AppointmentsList.scss";
 
 const DoctorsList = ({ doctors }) => {
-  console.log("doctors", doctors);
   return (
     <>
       <div className="card__wrapper">
