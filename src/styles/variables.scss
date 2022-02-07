@@ -2,6 +2,7 @@
 $clr-primary: #d50000;
 $clr-primary-hover: #29e6a7;
 $clr-primary-dark: #039d69;
+$clr-blue: #2ab6d9;
 $clr-gray100: #f9fbff;
 $clr-gray150: #f4f6fb;
 $clr-gray200: #eef1f6;
@@ -23,5 +24,18 @@ $radius: 0.3rem;
 
 body {
   font-family: Oxygen, sans-serif;
-  margin: 2rem;
+}
+
+// links
+a, a:visited, a:hover {
+  list-style-type: none;
+}
+
+// breakpoints
+$mobile: 440px;
+// Flexbox
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

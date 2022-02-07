@@ -1,6 +1,10 @@
 @import "./variables";
 
 .searchBar {
+  position: sticky;
+  z-index: 2;
+  top:31.5vh;
+
   &__input {
       width: 97%;
       margin: 2%;

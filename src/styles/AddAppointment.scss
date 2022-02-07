@@ -7,11 +7,15 @@
   box-shadow: 0 2px 20px $clr-gray400;
   max-width: 37rem;
   min-width: 19rem;
+    h2 {
+      margin: 10px 40px;
+    }
+    margin: 20px auto;
 }
 
 .form {
 
-  &__input {
+  &__input, &__select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -20,6 +24,15 @@
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 1rem;
+  }
+
+&__label-select {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+  &__select {
+    outline: none;
   }
 
   &__btn {
@@ -38,6 +51,14 @@
   &__btn:hover {
     background-color: white;
     color: #7fda82;
+  }
+
+  &__cal {
+    background-color: white;
+    padding: 1rem;
+    width: 100%;
+    border-radius: $radius;
+    color: $clr-blue;
   }
 
 }

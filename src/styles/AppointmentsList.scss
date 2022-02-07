@@ -1,13 +1,15 @@
 @import "./variables";
+.appointmentList__container{
+  margin-top: 2rem;
+}
 
-.list {
-  
-  &__wrapper {
-    margin: 2rem;
+.list{
+  &__content {
+    margin-top: 4rem;
     display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr;
-    justify-content: center;
+    grid-template-columns: 33vw 33vw 33vw;
+    grid-column-gap: 2rem;
+    grid-row-gap: 1rem;
   }
 
   &__btn {
@@ -33,8 +35,14 @@
   }
 }
 
-@media screen and (min-width:440px) {
-  .wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 16rem));
+@media screen and (max-width:440px) {
+  .list{
+    &__content {
+      
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 4rem;
+        grid-row-gap: 1rem;
+    }
   }
 }

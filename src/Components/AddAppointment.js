@@ -1,12 +1,15 @@
 import React from "react";
 // import { useHistory, useNavigate} from "react-router-dom";
 import "../styles/AddAppointment.scss";
+import DateTimePicker from "react-datetime-picker";
 
 class AddAppointment extends React.Component {
   state = {
     name: "",
     email: "",
-    phone: ""
+    phone: "",
+    doctor: "",
+    dateTime: ""
   };
 
   handleAddAppt = (e) => {
@@ -17,14 +20,13 @@ class AddAppointment extends React.Component {
     }
     this.props.handleAddAppt(this.state);
     this.setState({ name: "", email: "", phone: "" });
-    console.log(this.state);
-    // this.props.history.push("/");
+    // this.props.history.push("/add");
   };
 
   render() {
     return (
       <div className="form__container">
-        <h2 className="form__title">Add Appointment</h2>
+        <h2>Add Appointment</h2>
         <form className="form" onSubmit={this.handleAddAppt}>
           <div className="form__name">
             <label className="form__label" htmlFor="userName"></label>
@@ -33,7 +35,7 @@ class AddAppointment extends React.Component {
               required
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder="Name: Sandy Jones"
               value={this.state.name}
               onChange={(e) => this.setState({ name: e.target.value })}
             />
@@ -46,7 +48,7 @@ class AddAppointment extends React.Component {
               className="form__input"
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Email: sandy@mail.com"
               value={this.state.email}
               onChange={(e) => this.setState({ email: e.target.value })}
             />
@@ -55,16 +57,34 @@ class AddAppointment extends React.Component {
           <div className="field">
             <label className="field__label" htmlFor="userPhone"></label>
             <input
-              // required
               className="form__input"
               type="tel"
               name="phone"
               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              placeholder="123-456-7890"
+              placeholder="Phone: 123-456-7890"
               value={this.state.phone}
               onChange={(e) => this.setState({ phone: e.target.value })}
             />
           </div>
+
+          <div className="field">
+            <label className="form__label-select" htmlFor="select doctor">
+              Choose your Doctor:
+            </label>
+            <select
+              className="form__select"
+              onChange={(e) => this.setState({ doctor: e.target.value })}
+            >
+              {this.props.doctors.map((doctor) => {
+                return <option value={doctor.name}>{doctor.name}</option>;
+              })}
+            </select>
+          </div>
+          <DateTimePicker
+            className="form__cal"
+            onChange={(e) => this.setState({ dateTime: e.target.value })}
+            value={this.state.dateTime}
+          />
 
           <button className="form__btn" type="submit">
             Book Appointment

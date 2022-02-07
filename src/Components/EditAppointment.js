@@ -1,10 +1,11 @@
+import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
 import "../styles/AddAppointment.scss";
 
 const EditAppointment = (props) => {
-  let { index } = useParams();
+  const { id } = useParams();
   // let history = useHistory();
 
   const [appointment, setAppointment] = useState({
@@ -16,25 +17,13 @@ const EditAppointment = (props) => {
   const handleTextChange = (e) => {
     e.preventDefault();
     setAppointment({ ...appointment, [e.target.id]: e.target.value });
+    // history.push(`/appointments/${id}`);
   };
-
-  // const getAppointment = async () => {
-  //   try {
-  //     const res = await axios.get(`${API}/appointment/${index}`);
-  //     setAppointment(res.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getAppointment();
-  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await props.updateAppointment(appointment, index);
-    history.push(`/appointments/${index}`);
+    await props.updateAppointment(appointment, id);
+    // history.push(`/appointments/${id}`);
   };
 
   return (
@@ -83,10 +72,13 @@ const EditAppointment = (props) => {
             onChange={handleTextChange}
           />
         </div>
+        <button className="form__btn" type="submit">
+          Submit Edits
+        </button>
       </form>
 
-      <Link to={`/appointments/${index}`}>
-        <button className="form__btn" type="submit">
+      <Link to={`/appointments/${id}`}>
+        <button className="form__backBtn" type="submit">
           Nevermind!
         </button>
       </Link>

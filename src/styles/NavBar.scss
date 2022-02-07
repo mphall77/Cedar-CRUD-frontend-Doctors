@@ -1,0 +1,121 @@
+@import "./variables.scss";
+
+header {
+  width: 100vw;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  padding-top: 1vh;
+  padding-bottom: 10vh;
+  z-index: 1;
+  background-color: white;
+  border-bottom: 1px solid $clr-gray500;
+  
+  h2 {
+    margin-top: 3rem;
+    color: $clr-blue;
+    font-size: 2rem;
+  }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+	&__logo {
+		float: left;
+    
+    img {
+      height: 100px;
+    }
+	}
+
+	&__menuItems {
+		float: right;
+    margin-top: 3rem;
+
+		ul {
+			list-style-type: none;
+      font-size: 1.3rem;
+
+			li {
+				display: inline;
+        margin-left: 25px;
+        
+				a {
+					text-decoration: none;
+					color: black;
+        }
+
+        a:hover {
+          border-bottom: 3px solid $clr-blue;
+          transition: 3ms ease-in-out;
+        }
+			}
+		}
+	}
+
+	&____mobileMenuIcon {
+		display: none;
+  }
+
+  &__portalBtn {
+   font-size: 1rem;
+   text-transform: capitalize;
+    padding: .2rem .8rem;
+    border-radius: 15px;
+    background: linear-gradient(to right, $clr-primary-dark, $clr-blue);
+    border: 0;
+    color: white;
+    cursor: pointer;
+ 
+  }
+}
+
+@media only screen and (max-width: $mobile) {
+  header {
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
+	.navbar {
+    
+		&__menuItems {
+			display: none; 
+
+			&-active {
+				display: block;
+				position: absolute;
+        top: 6.8rem;
+        left: 13rem;
+				background: transparent;
+				width: 100%;
+				text-align: center;
+
+				ul {
+          background-color: rgb(236, 242, 243);
+          height: 70vh;
+          width: 50vw;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items:center;
+
+					li {
+						display: block;
+            padding: 1.5rem 0;
+            border-bottom: 3px solid $clr-gray700;
+             width: 70%;
+					}
+				}
+			}
+		}
+
+		&__mobileMenuIcon {
+			display: block;
+			float: right;
+			font-size: 40px;
+			margin: 20px 30px;
+		}
+	}
+};

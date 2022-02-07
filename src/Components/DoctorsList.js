@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import "../styles/AppointmentsList.scss";
 
 // COMPONENTS
 import DoctorCard from "./DoctorCard";
 import SearchBar from "./SearchBar";
 import EmptyList from "./EmptyList";
-import "../styles/AppointmentsList.scss";
 
 const DoctorsList = ({ doctors }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -29,8 +28,8 @@ const DoctorsList = ({ doctors }) => {
   return (
     <div className="doctorsList__container">
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
-      <div className="card__wrapper">
+      <h2 className="list__title">List of Doctors</h2>
+      <div className="list__content">
         {searchTerm &&
           filteredDoctors.map((doctor) => {
             return <DoctorCard doctor={doctor} key={doctor.id} />;

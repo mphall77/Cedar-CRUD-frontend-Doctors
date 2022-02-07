@@ -1,0 +1,65 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap'); */
+/* @import "./variables"; */
+
+.doctors-list-container {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 33vw 33vw 33vw;
+  grid-column-gap: 4rem;
+  grid-row-gap: 1rem;
+}
+
+.doctors-list-card {
+  box-shadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s linear;
+}
+
+.doctors-list-card:hover {
+  box-shadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.img-container {
+  position: relative;
+}
+
+.doctor-img-list {
+  max-height: 40vh;
+  max-width: 40vw;
+  display: block;
+  transition: all 0.3s linear;
+}
+
+.img-container:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.img-container:hover img {
+  opacity: 0.3;
+}
+
+.doctors-list-card a,
+.doctors-list-card a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.card {
+  border-radius: 7px;
+  font-family: "Poppins", sans-serif;
+  width: 380px;
+  height: 250px;
+  display: flex;
+}
+
+@media screen and (max-width: 720px) {
+  .doctors-list-container {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+  }
+  .doctor-img-list {
+    height: 50vh;
+    width: 40vw;
+    display: block;
+    transition: all 0.3s linear;
+  }
+}
