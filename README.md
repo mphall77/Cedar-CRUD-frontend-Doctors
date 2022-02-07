@@ -6,7 +6,7 @@ In the project directory, to install any dependencies you can run:
 ### `npm install` 
 
 ### `npm start` to start  OR
-Open [https://op6qj.csb.app/] to view in the browser.
+Open [CodeSandbox.io] (https://op6qj.csb.app/) to view in the browser.
 
 # Project: Mock Doctor's Office (FrontEnd)
   * responsive for mobile and desktop users
