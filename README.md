@@ -14,8 +14,8 @@ React, Saas/SCSS, Axios, UUID
 ### JSON file was created as a mock database of doctors, located in the data folder "./src/data/doctors.json"
 
 ### Users are able to:
- -- ceate a new appointment with a doctor selected by the user on the input form
- -- delete an appointment 
- -- search the list of doctors by doctor's name
- -- search the appointment card by doctor's name
+  ceate a new appointment with a doctor selected by the user on the input form
+  delete an appointment 
+  search the list of doctors by doctor's name
+  search the appointment card by doctor's name
  
