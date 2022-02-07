@@ -8,6 +8,9 @@ In the project directory, to install any dependencies you can run:
 ### `npm start` to start  OR
 Open [https://op6qj.csb.app/] to view in the browser.
 
+# Project: Mock Doctor's Office (FrontEnd)
+  * responsive for mobile and desktop users
+
 ### Technology and/or Packages used:
 React, Saas/SCSS, Axios, UUID
 
