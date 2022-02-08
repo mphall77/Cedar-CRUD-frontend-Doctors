@@ -75,8 +75,11 @@ class AddAppointment extends React.Component {
               className="form__select"
               onChange={(e) => this.setState({ doctor: e.target.value })}
             >
+              <option value="" disabled selected>
+                ---
+              </option>
               {this.props.doctors.map((doctor) => {
-                return <option value={doctor.name}>{doctor.name}</option>;
+                return <option value={doctor.name}>{doctor.name} </option>;
               })}
             </select>
           </div>

@@ -40,7 +40,7 @@ const NavBar = () => {
         </div>
 
         {/* PATIENT PORTAL */}
-        <button className="navbar__portalBtn">my portal</button>
+        {/* <button className="navbar__portalBtn">my portal</button> */}
 
         {/* MOBILE MENU ICON */}
         <div

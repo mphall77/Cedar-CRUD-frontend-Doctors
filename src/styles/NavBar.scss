@@ -4,15 +4,14 @@ header {
   width: 100vw;
   position: sticky;
   top: 0;
-  width: 100vw;
   padding-top: 1vh;
-  padding-bottom: 10vh;
+  padding-bottom: 5vh;
   z-index: 1;
   background-color: white;
   border-bottom: 1px solid $clr-gray500;
   
   h2 {
-    margin-top: 3rem;
+    margin-top: .5rem;
     color: $clr-blue;
     font-size: 2rem;
   }
@@ -86,8 +85,8 @@ header {
 			&-active {
 				display: block;
 				position: absolute;
-        top: 6.8rem;
-        left: 13rem;
+        top: 7.4rem;
+        left: 10.5rem;
 				background: transparent;
 				width: 100%;
 				text-align: center;
@@ -105,7 +104,7 @@ header {
 						display: block;
             padding: 1.5rem 0;
             border-bottom: 3px solid $clr-gray700;
-             width: 70%;
+            width: 70%;
 					}
 				}
 			}
